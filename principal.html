@@ -12,14 +12,15 @@
 </head>
 
 <style>
-  @media (max-width: 500px) {
-    
-    .jumbotron {
-      height: 40vh;
-      background-position: -88px;
+  @media(max-width: 500px){ todo esto se cambió de style a style
+    .jumbotron{
+      height: 40vw;
+      background-position: -88px; 
     }
-  } 
-</style>
+  }
+  </style>
+  
+
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
@@ -42,6 +43,10 @@
           <li class="nav-item">
           </li>
         </ul>
+      </div>
+      <div id="user-info" class="navbar-user-info">
+          <span id="showusername"></span>
+          <button id="logout">Cerrar sesión</button>
       </div>
     </div>
   </nav>
@@ -98,8 +103,6 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/index.js"></script>
   <script src="js/init.js"></script>
-  <script src="js/principal.js"></script>
-  
 </body>
 
 </html>

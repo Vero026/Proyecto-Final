@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', function() { //espera a que el DOM
         if (username === '' || password === '') { //si el usuario o la contraseña están vacios
             alert('Por favor, complete todos los campos.'); //muestra un mensaje de alerta
         } else {
-            localStorage.setItem('logged', 'true'); //guarda el estado de autenticación en localStorage
+            localStorage.setItem('logged', 'true'); //guarda el estado de autenticación en localStorage}
+            localStorage.setItem('username', username); //guarda la info puesta en el campo username
             
             window.location.href = 'principal.html'; //redirige a la página principal
         }

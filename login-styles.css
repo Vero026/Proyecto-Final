@@ -6,7 +6,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-image: url('back-login3.jpg');
+    background-image: url('images/back-login3.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
@@ -28,12 +28,12 @@ body {
         text-align: center;
     }
 
- 
- #login{
+    #login{
         display: grid; /*te ordena las cosas de arriba para abajo y te deja todo del mismo tamaño*/
         gap: 1em;
         min-width: (400px, 80vw); /*esto usa el mas chico de los numeros, entonces le das un numero fijo con 400px y un numero dinamico con 90vw, si miras desde una pc se ve de 400px y si lo ves desde un celular el 400px es muy grande, entonces usa el 90vw*/
-    }
+    }   
+    
     
 
  header h1 {
@@ -57,7 +57,7 @@ body {
     border-radius: 15px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     position: relative;
-    width: min(400px, 80vw); /*agranda el login box*/
+    width: 500px;
     margin: 0 auto;
     margin-top: 100px;
 }
@@ -82,15 +82,13 @@ body {
     display: block; 
 }
 
-
 form input[type="text"],
 form input[type="password"] {
-   /* width: 100%;*/
+    /*width: 100%; con el grid que le agregue al id de login no es necesario el width*/
     padding: 10px;
-    /*margin: 10px 0;*/
+    /*margin: 10px 0; con el gap que le agregue no es necesario el margin*/
     border-radius: 20px;
     border: 1px solid #ccc;
-    /*el width y el margin ya no son necesarios porque pusimos "display: grid"*/
 }
 
 form button {

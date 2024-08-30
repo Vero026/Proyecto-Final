@@ -98,12 +98,11 @@ body {
 
 .bugatti {
     position: relative;
+    padding: 1em;
     /*width: 90%;
     margin-left: auto;
     margin-right: 50px;*/
-    padding: 1em;
-    margin-top: 45px;
-    margin-inline: auto;
+    margin-inline: auto; /*le cambié esto y agregé padding*/
     margin-top: 45px;
 }
 
@@ -172,9 +171,9 @@ body {
     flex-wrap: wrap;
     gap: 20px;
     margin-top: 20px;
-    padding: 1em;
-    /*width: 90%; Ajuste para que ocupe el mismo ancho que la imagen del bugatti
-    margin-right: 50px; /* Alinea con el margen de la imagen bugatti */
+    padding: 1em;/*cambié esto*/
+    /*width: 90%; /* Ajuste para que ocupe el mismo ancho que la imagen del bugatti 
+    margin-right: 50px;  Alinea con el margen de la imagen bugatti/ saque esto*/
 }
 
 .item-auto {
