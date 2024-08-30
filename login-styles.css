@@ -172,7 +172,7 @@ footer img {
 
  @media (max-width: 1366px) {
     .login-box {
-        width: 450px; 
+        /*width: 450px; /no es necesario este con lo que esta en el login*/ 
         padding: 20px;
     }
     .profile-img {
@@ -189,7 +189,7 @@ footer img {
             background-attachment: scroll;
         }
         .login-box {
-            width: 90%; 
+            /*width: 90%; cambie esto tambien*/ 
             padding: 20px;
         }
         .profile-img {
