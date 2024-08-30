@@ -1,0 +1,191 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    background-image: url('images/background-listado.png'); 
+    background-size: 85%; 
+    background-attachment: fixed;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+.navbar {
+    background-color: #333;
+    padding: 10px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+}
+
+.navbar ul li a:hover {
+    background-color: #555;
+}
+
+.content {
+    display: flex;
+}
+
+.barra-lateral {
+    background-color: #F0F0F0;
+    padding: 20px;
+    width: 45%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.barra-lateral h2 {
+    margin-top: 20;
+    color: #333;
+    padding-left: 30px;
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif, sans-serif;
+    font-weight: lighter;
+}
+
+.barra-lateral p,
+.barra-lateral h3 {
+    margin-left: 30px;
+    margin-top: 40px;
+}
+
+.barra-lateral ul {
+    list-style-type: none;
+    padding: 0;
+    margin-left: 30px;
+}
+
+.barra-lateral ul li {
+    margin: 10px 0;
+}
+
+.barra-lateral ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.ver-mas {
+    color: #F19810;
+    padding-left: 30px;
+}
+
+.ver-mas:hover {
+    color: #c546ce;
+}
+
+.barra-lateral ul li a:hover {
+    text-decoration: underline;
+}
+
+.contenido-principal {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-end;
+}
+
+.bugatti {
+    position: relative;
+    width: 90%;
+    margin-left: auto;
+    margin-right: 50px;
+    margin-top: 45px;
+}
+
+.bugatti img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.info-autos {
+    position: absolute;
+    bottom: 80px;
+    right: 30px;
+    background-color: rgba(39, 37, 37, 0.6);
+    color: #fff;
+    padding-left: 10px;
+    border-radius: 5px;
+    width: 25%;
+    height: 70%;
+}
+
+.info-autos img {
+    width: 100px; 
+    height: auto;
+    padding-top: 10px;
+    margin-left: 10px;
+}
+
+.info-autos h3 {
+    margin: 5px 0;
+    margin-top: 30px;
+    font-weight: lighter;
+    margin-left: 10px;
+    font-size: 25px;
+    font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#nombre {
+    margin: 5px 0;
+    margin-top: 10px;
+    font-weight: lighter;
+    margin-left: 10px;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#precio { 
+    margin: 5px 0;
+    margin-top: 10px;
+    font-weight: lighter;
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+#ubicacion {
+    margin: 5px 0;
+    margin-top: 10px;
+    font-weight: lighter;
+    margin-left: 10px;
+    font-size: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.lista-autos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+    width: 90%; /* Ajuste para que ocupe el mismo ancho que la imagen del bugatti */
+    margin-right: 50px; /* Alinea con el margen de la imagen bugatti */
+}
+
+.item-auto {
+    flex: 1 1 calc(25% - 20px); /* Ajuste para asegurar 4 columnas en una fila */
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.item-auto img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
