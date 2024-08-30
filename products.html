@@ -1,67 +1,74 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>eMercado - Todo lo que busques está aquí</title>
-
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link href="css/font-awesome.min.css" rel="stylesheet">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogo de autos e-mercado</title>
+    <link rel="stylesheet" href="listado-autos-styles.css">
 </head>
-
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <li class="nav-item">
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <main class="pb-5 container">
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
-    </div>
-  </main>
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
-    </div>
-  </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/products.js"></script>
-</body>
+    <header class="navbar">
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Categorías</a></li>
+                <li><a href="#">Vender</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <div class="content">
+        <aside class="barra-lateral">
+            <h2>Autos</h2>
+            <p>450 resultados</p>
+            <div class="filtro">
+                <h3>Ubicación</h3>
+                <ul>
+                    <li><a href="#">Montevideo</a></li>
+                    <li><a href="#">Canelones</a></li>
+                    <li><a href="#">Maldonado</a></li>
+                    <li><a href="#">Cerro Largo</a></li>
+                    <li><a href="#">Lavalleja</a></li>
+                    <li><a href="#">Salto</a></li>
+                    <li><a href="#">Florida</a></li>
+                </ul>
+                <a href="#" class="ver-mas">Ver más</a>
+
+            </div>
+            <div class="filtro">
+                <h3>Marcas</h3>
+                <ul>
+                    <li><a href="#">Chevrolet</a></li>
+                    <li><a href="#">Hyundai</a></li>
+                    <li><a href="#">Ford</a></li>
+                    <li><a href="#">Fiat</a></li>
+                    <li><a href="#">Renault</a></li>
+                    <li><a href="#">Audi</a></li>
+                    <li><a href="#">BMW</a></li>
+                </ul>
+                <a href="#" class="ver-mas">Ver más</a>
+
+            </div>
+        </aside>
+
+        <main class="contenido-principal">
+            <!-- Aquí va el código HTML para mostrar el Bugatti Chiron con la caja gris -->
+            <div id="main-product" class="bugatti">
+                <img src="images/bugatti2.jpg" alt="Bugatti Chiron">
+                <div class="info-autos">
+                    <h3>Bugatti Chiron</h3>
+                    <img src="" alt="logo-bugatti">
+                    <p id="nombre">Bugatti</p>
+                    <p id="precio">US$ 3,500,000.00</p>
+                    <p id="ubicacion">Producción limitada a 500 unidades</p>
+                </div>
+            </div>
+
+            <!-- Este div contendrá los otros productos en columnas -->
+            <div id="other-products" class="lista-autos"></div> 
+        </main>
+        
+    </div>
+    <script src="index.js"></script> 
+</body>
 </html>
