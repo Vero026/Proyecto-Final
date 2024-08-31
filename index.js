@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainProductContainer = document.getElementById('main-product');
     const otherProductsContainer = document.getElementById('other-products');
     const apiUrl = "https://japceibal.github.io/emercado-api/cats_products/101.json";
+    
 
     // mapeo manual de nombres de productos a nombres de archivos de imagen
     const imageMap = {
