@@ -1,16 +1,17 @@
-document.addEventListener('DOMContentLoaded', function() { //espera a que el DOM esté completamente cargado    
-    const form = document.getElementById('login'); //aelecciona el formulario de login
-    
-    form.addEventListener('submit', function(event) { //agrega un evento al formulario
-        event.preventDefault(); //para prevenir que el formulario se envíe antes de validarlo
-        const username = document.getElementById('username').value.trim(); //obtiene el valor del campo de usuario
-        const password = document.getElementById('password').value.trim(); //obtiene el valor del campo de contraseña
+document.addEventListener('DOMContentLoaded', function () {
+    const loginForm = document.getElementById('loginForm');
 
-        if (username === '' || password === '') { // Si el usuario o la contraseña están vacíos
-            alert('Por favor, complete todos los campos.'); //muestra un mensaje de alerta
-        } else {
-
-            window.location.href = 'ProyectoFinal/principal.html'; //redirige a la página principal
-        }
+    // Manejo del formulario de inicio de sesión
+    loginForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const usernameInput = document.getElementById('username').value;
+        localStorage.setItem('username', usernameInput);
+        window.location.href = 'index.html';
     });
+
+    // Redirigir al usuario si ya está autenticado
+    const username = localStorage.getItem('username');
+    if (username) {
+        window.location.href = 'index.html';
+    }
 });
