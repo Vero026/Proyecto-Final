@@ -40,22 +40,36 @@ let getJSONData = function(url){
     });
 };
 
+
 // Modo dia y noche
 let modoNoche = localStorage.getItem('modoNoche') === 'true';
 
-        function aplicarModo() {
-            document.body.className = modoNoche ? 'modo-noche' : 'modo-dia';
-            document.getElementById('boton').innerHTML = modoNoche ? '<i class="bi bi-moon-fill"></i>' : '<i class="bi bi-sun-fill"></i>';
-        }
+    function aplicarModo() {
+        document.body.className = modoNoche ? 'modo-noche' : 'modo-dia';
+        document.getElementById('boton').innerHTML = modoNoche ? '<i class="bi bi-moon-fill"></i>' : '<i class="bi bi-sun-fill"></i>';
+    }
 
-        function cambiarModo() {
-            modoNoche = !modoNoche;
-            localStorage.setItem('modoNoche', modoNoche);
-            aplicarModo();
-        }
-
-        // Agrega el evento al botón
-        document.getElementById('boton').addEventListener('click', cambiarModo);
-
-        // Aplica el modo al cargar la página
+    function cambiarModo() {
+        modoNoche = !modoNoche;
+        localStorage.setItem('modoNoche', modoNoche);
         aplicarModo();
+    }
+
+    // Agrega el evento al botón
+    document.getElementById('boton').addEventListener('click', cambiarModo);
+
+    // Aplica el modo al cargar la página
+    aplicarModo();
+    updateUsername () 
+
+
+// Mostrar el nombre del usuario
+
+  function updateUsername () {
+    const userName = localStorage.getItem('currentUsername');
+
+    //Mostrar nombre de usuario al iniciar sesión
+    const usernameDisplay = document.getElementById ('username-display');
+    usernameDisplay.textContent = userName;
+  }
+  
