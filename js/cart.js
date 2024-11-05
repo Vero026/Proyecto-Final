@@ -12,7 +12,7 @@ function displayCart () {
 
     cartItemsContainer.innerHTML = "";
 
-    if(cartItems.length ===0) {
+    if(cartItems.length === 0) {
         cartItemsContainer.innerHTML = `
             <p>Aun no has añadido nungun producto</p>
             <br>
@@ -22,7 +22,7 @@ function displayCart () {
 
         let newItem = `
             <div class="card mb-3 bg-secondary">
-            <div class="row g-0 m-5">
+            <div class="row g-0 m-3">
               
                 <div class="col-md-4 col-sm-12 d-flex justify-content-center align-items-center ">
                     <div class="card-img-top d-flex justify-content-center ">
@@ -30,11 +30,16 @@ function displayCart () {
                     </div>
                 </div>
                 
-                
                 <div class="col-md-8 col-sm-12 ps-4">
                     <div class="card-body d-flex flex-column justify-content-between position-relative h-100">
-                        <h3 class="card-title">${product.name}</h3>
-                        <p class="card-text fw-bold price">${product.cost}</p>
+                        <h4 class="card-title f-wbold">${product.name}</h4>
+
+                        <div class="d-flex">
+                            <p class="card-text fw-bold currency">${product.currency}</p>
+                            <p class="card-text fw-bold">$</p>
+                            <p class="card-text fw-bold price">${product.cost}</p>
+                        </div>
+
                         <p class="card-text">Cod-${product.id}</p>
 
                         <div class="product d-flex align-items-center mb-2 w-sm-auto d-sm-block">
@@ -86,27 +91,95 @@ function displayCart () {
         });
     })
 
-    updateSubTotal();
-
-    function updateSubTotal(){
-        const subtotalElement = document.getElementById("subTotal");
-        let subTotalValor = 0;
-
-        let cards = document.querySelectorAll(".card-body")
-    
-        cards.forEach(card => {
-            const quantityInput = card.querySelector('.quantity-input');
-            const priceElement = card.querySelector('.price'); 
-
-            //Por las dudas para asegurarme de que cantidad solo traiga números
-            quantityInput.value = parseInt(quantityInput.value.replace(/[^0-9]/g, '')); 
-    
-            subTotalValor += quantityInput.value * priceElement.textContent;
-        })
-    
-        subtotalElement.textContent = '$' + subTotalValor.toFixed(2);
-    }
+    updateSubTotal(); 
 }}
+
+
+function updateSubTotal(){
+    const subtotalElement = document.getElementById("subTotal");
+    let subTotalValor = 0;
+
+    let cards = document.querySelectorAll(".card-body")
+
+    cards.forEach(card => {
+
+        const quantityInput = card.querySelector('.quantity-input');
+        const currency = card.querySelector('.currency').textContent.trim();
+        const priceElement = card.querySelector('.price'); 
+
+        //Por las dudas para asegurarme de que cantidad solo traiga números
+        quantityInput.value = parseInt(quantityInput.value.replace(/[^0-9]/g, '')); 
+
+        console.log(currency);
+       
+        if (currency === "USD") {
+            
+            subTotalValor += quantityInput.value * parseFloat(priceElement.textContent);
+            
+            console.log(`Moneda: ${currency}, Precio: ${priceElement.textContent}, Cantidad: ${quantityInput.value}`);
+
+        } else {
+            
+            subTotalValor += quantityInput.value * parseFloat(priceElement.textContent) / 42;
+            
+            console.log(`Moneda: ${currency}, Precio: ${priceElement.textContent}, Cantidad: ${quantityInput.value}`);
+            
+        }
+
+    })
+
+    subtotalElement.textContent = 'USD $' + subTotalValor.toFixed(2);
+    updateTotal();
+}
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const currencySelect = document.getElementById('currencySelect');
+
+    // Toma el valor guardado en localStorage
+    const savedCurrency = localStorage.getItem('selectedCurrency');
+    if (savedCurrency) {
+        currencySelect.value = savedCurrency;
+    }
+
+    // Si cambias la seleccion actual
+    currencySelect.addEventListener('change', function () {
+        localStorage.setItem('selectedCurrency', this.value);
+        updateTotal(); // Actualiza el total 
+    });
+
+    updateTotal(); 
+});
+
+function updateTotal() {
+    const subtotalElement = document.getElementById("subTotal");
+    const totalElement = document.getElementById("total");
+    const shippingCost = 25; 
+
+    let subTotalValue = parseFloat(subtotalElement.textContent.replace('USD $', ''));
+    console.log("Subtotal: ", subTotalValue);
+    
+    let totalValue = subTotalValue + shippingCost; 
+
+    // Convertir el total según la moneda seleccionada
+    const currencySelected = document.getElementById('currencySelect').value;
+    
+    console.log("Moneda seleccionada: " + currencySelected);
+
+    if (!currencySelected) {
+        console.error("No se ha seleccionado una moneda.");
+        return; 
+    }
+
+    if (currencySelected === "US") {
+        totalElement.textContent = 'Total: $' + totalValue.toFixed(2); 
+    } else if (currencySelected === "UY") {
+        totalElement.textContent = 'Total: $' + (totalValue * 42).toFixed(2); 
+    } else {
+        totalElement.textContent = 'Error: Moneda no reconocida';
+    }
+}
+
 
  // Función para guardar el ID y redirigir a la página de detalles
  function saveProductId(id, category) {

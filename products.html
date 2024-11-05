@@ -30,6 +30,9 @@
         <!-- Contenido del menú colapsable -->
         <div class="collapse navbar-collapse" id="navbarHidden">
           <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item m-0 me-4">
+              <img class="d-inline-block align-middle" src="img/logo.png">
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="index.html">Inicio</a>
             </li>
@@ -43,9 +46,8 @@
         </div>
       </div>
   
-      <!-- Íconos de usuario, favorito y carrito alineados a la derecha -->
-      <div class="navbar-icons d-flex align-items-center">   
-
+      
+      <div class="navbar-icons  d-flex align-items-center  ">   
         <a class="nav-link ms-3"> 
           <button id="boton" class="btn modo-dia ms-3"><i class="bi bi-sun-fill"></i></button>
         </a>
@@ -54,15 +56,17 @@
           <p id="username-display" class="mb-0 me-2">Usuario</p>
           <i class="bi bi-person"></i>
         </a>
-        <a href="#" class="nav-link ms-3">
+        <a href="favorites.html" class="nav-link ms-3">
           <i class="bi bi-heart"></i>
         </a>
+        <!-- badge del carrito -->
         <a href="cart.html" class="nav-link ms-3">
           <i class="fas fa-shopping-cart"></i>
+          <span id="cart-badge" class="badge bg-primary">0</span>
         </a>
       </div>
     </div>
-  </nav>
+    </nav>
 
 <!-- Breadcrumbs - Navegador de rutas -->
 <nav aria-label="breadcrumb" class="px-5 mb-0 col-12">

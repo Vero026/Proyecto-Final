@@ -34,7 +34,9 @@ function fetchProductData(url, productId) {
 
             document.getElementById("favBtn").addEventListener("click", () =>  saveToFavorites(product));
             document.getElementById("btn-add-to-cart").addEventListener("click", () =>  saveToCart(product));
-           
+            document.getElementById("btn-buy").addEventListener("click", () =>  saveToCart(product));
+
+            
         })
         .catch(error => console.error('Error al cargar los datos del producto:', error));
 }
@@ -323,7 +325,6 @@ function setupRelatedProducts(productId) {
         })
         .catch(error => console.error('Error al cargar los productos relacionados:', error));
 }
-
 //Configura botones para desplazarse en los productos relacionados.
 function setupScrollButtons() {
     const nextBtn = document.getElementById('nextBtn');
@@ -449,11 +450,8 @@ document.addEventListener('DOMContentLoaded', function () {
     usernameDisplay.textContent = userName;
 });
 
-//Punto 3
-
-
 // Redirige a cart.html al hacer clic en "Comprar"
-document.getElementById("btn-comprar").addEventListener("click", function () {
+document.getElementById("btn-buy").addEventListener("click", function () {
     window.location.href = "cart.html";
 });
 
@@ -469,8 +467,6 @@ function saveToCart(product) {
         cart.push(product);
         localStorage.setItem("cart", JSON.stringify(cart));
         alert("Producto añadido al carrito");
-    } else {
-        alert('No puedes agregar más por ahora');
     }
 
     console.log(`Datos guardados en cart: ${JSON.stringify(cart)}`);
@@ -489,7 +485,7 @@ function saveToFavorites(product) {
         localStorage.setItem("favorites", JSON.stringify(favorites));
         alert("Producto añadido a favoritos");
     } else {
-        alert("Your heart is closed for this product.");
+        alert("Este producto ya esta en favoritos.");
     }
 
     console.log(`Datos guardados en fav: ${JSON.stringify(favorites)}`);
@@ -497,4 +493,4 @@ function saveToFavorites(product) {
     window.location.href = "favorites.html";
 }
 
-    
+

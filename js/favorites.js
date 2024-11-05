@@ -1,14 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Llama a la función para mostrar favoritos en la página
     displayFavorites();
 });
 
 // Función para mostrar productos favoritos
+
 function displayFavorites() {
     const favoritesContainer = document.getElementById("favorites-container");
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
-    // Limpiar contenedor antes de agregar productos
     favoritesContainer.innerHTML = "";
 
     if (favorites.length === 0) {
@@ -31,9 +30,10 @@ function displayFavorites() {
 }
 
 // Función para eliminar un producto de favoritos
+
 function removeFavorite(index) {
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    favorites.splice(index, 1); // Eliminar el producto del array
+    favorites.splice(index, 1); 
     localStorage.setItem("favorites", JSON.stringify(favorites));
-    displayFavorites(); // Actualizar la lista de favoritos en la página
+    displayFavorites(); 
 }
